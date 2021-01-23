@@ -1,0 +1,10 @@
+.create-card {
+  text-align: left;
+  padding: 30px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.create-card__text {
+  margin-bottom: 10px;
+}
