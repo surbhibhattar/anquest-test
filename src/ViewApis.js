@@ -16,42 +16,97 @@ import background_img from "./Assets/background@3x.png";
 import iso_logo_img from "./Assets/iso-logo.svg";
 import profile_img from "./Assets/profile.png";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode";
+import FormatListNumberedRtlIcon from "@material-ui/icons/FormatListNumberedRtl";
+import GroupIcon from "@material-ui/icons/Group";
+import StarsIcon from "@material-ui/icons/Stars";
+import SettingsIcon from "@material-ui/icons/Settings";
+import AppsIcon from "@material-ui/icons/Apps";
+import SyncIcon from "@material-ui/icons/Sync";
+import TextFormatIcon from "@material-ui/icons/TextFormat";
+import { Icon } from "@material-ui/core";
 
 export const ViewApis = (props) => {
   useEffect(() => {
-    fetch("https://anques.com/s/get_api_list.json")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    // fetch("https://anques.com/s/get_api_list.json")
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
   }, []);
 
   return (
-    <div
-      className="container"
-      style={{ backgroundImage: `url(${background_img})` }}
-    >
+    <div className="container">
       <div className="top-panel">
         <div className="top-panel__left">
           <img src={iso_logo_img} className="top-panel__img" />
-          <label>APIs</label>
+          <div className="top-panel__left--container">
+            <label>APIs</label>
+            <label>Security Gateway / APIs</label>
+          </div>
         </div>
         <div className="top-panel__right">
-          <Card className="top-panel__right--card">
-            <div>
+          <div className="top-panel__right--card">
+            <div className="text-container">
               <label>Mariano Diaz</label>
-              <br />
               <label>Functional Analyst</label>
             </div>
             <img src={profile_img} />
-          </Card>
+          </div>
         </div>
       </div>
 
-      <div className="card-container">
-        {data.map((each) => (
-          <CardComponent data={each} />
-        ))}
+      <div style={{ display: "flex", marginTop: "20px" }}>
+        <div className="side-panel">
+          <IconButton>
+            <ChromeReaderModeIcon />
+          </IconButton>
+          <IconButton>
+            <FormatListNumberedRtlIcon />
+          </IconButton>
+          <IconButton>
+            <GroupIcon />
+          </IconButton>
+          <IconButton>
+            <AccountCircleIcon />
+          </IconButton>
+          <IconButton>
+            <StarsIcon />
+          </IconButton>
+          <hr style={{ width: "27px", marginBottom: 0, marginTop: 0 }} />
+
+          <IconButton>
+            <SettingsIcon />
+          </IconButton>
+          <IconButton>
+            <AppsIcon />
+          </IconButton>
+        </div>
+
+        <div style={{ width: "100%" }}>
+          <div className="middle-panel">
+            <div>Control & alert</div>
+            <h2>Security Gateway</h2>
+          </div>
+
+          <div className="card-container">
+            <hr
+              style={{ margin: "0 auto", width: "100%", marginBottom: "20px" }}
+            />
+            <div className="api-label">APIs</div>
+            <div style={{ display: "flex" }}>
+              {data.map((each, index) => (
+                <CardComponent data={each} key={index} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
+
+      <footer>Copyright &copy; Octopi One 2020. All rights reserved.</footer>
+
       <IconButton
+        style={{ position: "fixed", fontSize: "20px" }}
+        className="add-button"
         onClick={() => {
           props.setShowCreateComp(true);
         }}
@@ -71,8 +126,6 @@ const CardComponent = (props) => {
   });
 
   const classes = useStyles();
-
-  const options = ["Sync", "Properties"];
 
   const ITEM_HEIGHT = 48;
 
@@ -112,15 +165,14 @@ const CardComponent = (props) => {
               },
             }}
           >
-            {options.map((option) => (
-              <MenuItem
-                key={option}
-                selected={option === "Pyxis"}
-                onClick={handleClose}
-              >
-                {option}
-              </MenuItem>
-            ))}
+            <MenuItem onClick={handleClose} style={{ display: "inherit" }}>
+              <span>Sync</span>
+              <SyncIcon style={{ float: "right" }} />
+            </MenuItem>
+            <MenuItem onClick={handleClose} style={{ display: "inherit" }}>
+              <span>Properties</span>
+              <TextFormatIcon style={{ float: "right" }} />
+            </MenuItem>
           </Menu>
         </div>
         <div className="card-image">

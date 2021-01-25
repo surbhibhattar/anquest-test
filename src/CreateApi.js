@@ -10,6 +10,7 @@ import iso_logo_img from "./Assets/iso-logo.svg";
 import profile_img from "./Assets/profile.png";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 export const CreateApi = (props) => {
   const [value, setValue] = React.useState("female");
@@ -28,21 +29,26 @@ export const CreateApi = (props) => {
       <div className="top-panel">
         <div className="top-panel__left">
           <img src={iso_logo_img} className="top-panel__img" />
-          <label>Create an API</label>
+          <div className="top-panel__left--container">
+            <label>Create an API</label>
+            <label>Security Gateway / APIs / Create an API</label>
+          </div>
         </div>
         <div className="top-panel__right">
-          <Card className="top-panel__right--card">
-            <div>
+          <div className="top-panel__right--card">
+            <div className="text-container">
               <label>Mariano Diaz</label>
-              <br />
               <label>Functional Analyst</label>
             </div>
             <img src={profile_img} />
-          </Card>
+          </div>
         </div>
       </div>
 
-      <h3>Create an API</h3>
+      <h3 style={{ margin: "0" }}>Create an API</h3>
+      <div style={{ marginBottom: "20px" }}>
+        Clone, import or create your new API from scratch
+      </div>
 
       <Card className="create-card">
         <div>
@@ -100,7 +106,7 @@ export const CreateApi = (props) => {
                   color="primary"
                 />
               }
-              label="Status"
+              label="Active"
             />
           </div>
         </div>
@@ -111,12 +117,19 @@ export const CreateApi = (props) => {
             width: "100%",
           }}
         >
-          <Button onClick={() => props.setShowCreateComp(false)}>BACK</Button>
+          <div>
+            <Button onClick={() => props.setShowCreateComp(false)}>
+              <ArrowBackIosIcon fontSize="small" />
+              BACK
+            </Button>
+          </div>
           <Button variant="contained" color="primary">
             CREATE API
           </Button>
         </div>
       </Card>
+
+      <footer>Copyright &copy; Octopi One 2020. All rights reserved.</footer>
     </div>
   );
 };

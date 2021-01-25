@@ -3,6 +3,12 @@
   margin: 10px;
   margin: 0 auto;
   width: 60%;
+  flex-direction: column;
+}
+
+.api-label {
+  text-align: left;
+  margin-bottom: 15px;
 }
 
 .card-content {
@@ -61,4 +67,70 @@
 .top-panel__right--card {
   display: inline-flex;
   padding: 10px;
+}
+
+.top-panel__left--container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.top-panel__left--container label:nth-child(1),
+.text-container label:nth-child(1) {
+  font-weight: bold;
+}
+
+.top-panel__left--container label + label {
+  font-size: 12px;
+}
+
+.text-container {
+  text-align: right;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-container label {
+  font-size: 16px;
+}
+
+.middle-panel {
+  margin-bottom: 30px;
+}
+
+.middle-panel div {
+  color: orange;
+  font-size: 26px;
+}
+
+.middle-panel h2 {
+  margin: 0;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  background: black;
+}
+
+.side-panel button {
+  color: white;
+}
+
+footer {
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.add-button {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
 }
